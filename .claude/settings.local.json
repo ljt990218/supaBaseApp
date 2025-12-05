@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(mv:*)",
-      "Bash(rmdir:*)"
+      "Bash(rmdir:*)",
+      "Bash(npx shadcn-vue@latest add:*)",
+      "Bash(pnpm dlx:*)",
+      "Bash(pnpm vue-tsc:*)"
     ],
     "deny": [],
     "ask": []
