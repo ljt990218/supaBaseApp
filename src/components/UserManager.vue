@@ -119,7 +119,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto p-2">
+  <div class="mx-auto max-w-4xl p-2">
     <Card class="mb-8">
       <CardHeader>
         <CardTitle class="flex items-center gap-2">
@@ -129,7 +129,7 @@ onMounted(() => {
       </CardHeader>
       <CardContent>
         <form @submit.prevent="handleSubmit" class="space-y-4">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div class="grid w-full items-center gap-1.5">
               <Label for="name">Name</Label>
               <Input
@@ -163,23 +163,23 @@ onMounted(() => {
             </div>
           </div>
 
-          <div class="flex gap-2 justify-end">
+          <div class="flex justify-end gap-2">
             <Button
               v-if="isEditing"
               type="button"
               variant="outline"
               @click="resetForm"
             >
-              <X class="w-4 h-4 mr-2" /> Cancel
+              <X class="mr-2 h-4 w-4" /> Cancel
             </Button>
             <Button
               type="submit"
               :disabled="loading"
             >
-              <Loader2 v-if="loading" class="w-4 h-4 mr-2 animate-spin" />
+              <Loader2 v-if="loading" class="mr-2 h-4 w-4 animate-spin" />
               <template v-else>
-                <Save v-if="isEditing" class="w-4 h-4 mr-2" />
-                <Plus v-else class="w-4 h-4 mr-2" />
+                <Save v-if="isEditing" class="mr-2 h-4 w-4" />
+                <Plus v-else class="mr-2 h-4 w-4" />
               </template>
               {{ isEditing ? 'Update User' : 'Add User' }}
             </Button>
@@ -188,7 +188,7 @@ onMounted(() => {
       </CardContent>
     </Card>
 
-    <div v-if="error" class="mb-4 p-4 text-red-700 bg-red-100 rounded-md border border-red-200">
+    <div v-if="error" class="mb-4 rounded-md border border-red-200 bg-red-100 p-4 text-red-700">
       {{ error }}
     </div>
 
@@ -206,7 +206,7 @@ onMounted(() => {
         </TableHeader>
         <TableBody>
           <TableRow v-if="users.length === 0">
-            <TableCell colspan="6" class="text-center h-24 text-muted-foreground">
+            <TableCell colspan="6" class="h-24 text-center text-muted-foreground">
               No users found. Add one above!
             </TableCell>
           </TableRow>
@@ -222,20 +222,19 @@ onMounted(() => {
               <div class="flex justify-end gap-2">
                 <Button
                   @click="startEdit(user)"
-                  variant="ghost"
                   size="icon"
                   title="Edit"
                 >
-                  <Pencil class="w-4 h-4" />
+                  <Pencil class="h-4 w-4" />
                 </Button>
                 <Button
                   @click="deleteUser(user.id)"
                   variant="ghost"
                   size="icon"
-                  class="text-red-600 hover:text-red-700 hover:bg-red-50"
+                  class="text-red-600 hover:bg-red-50 hover:text-red-700"
                   title="Delete"
                 >
-                  <Trash2 class="w-4 h-4" />
+                  <Trash2 class="h-4 w-4" />
                 </Button>
               </div>
             </TableCell>
